@@ -10,15 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_24_060749) do
+ActiveRecord::Schema.define(version: 2021_05_25_095138) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.bigint "from"
+    t.bigint "to"
+    t.text "comment_text"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["from"], name: "index_comments_on_from"
+    t.index ["to"], name: "index_comments_on_to"
+  end
+
+  create_table "relationships", force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "roles", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "standards", force: :cascade do |t|
+    t.text "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.text "name"
+    t.bigint "standard_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["standard_id"], name: "index_subjects_on_standard_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -32,10 +62,18 @@ ActiveRecord::Schema.define(version: 2021_05_24_060749) do
     t.bigint "role_id", null: false
     t.string "name"
     t.bigint "age"
+    t.bigint "standard_id"
+    t.bigint "parent_id"
+    t.bigint "relationship_id"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["relationship_id"], name: "index_users_on_relationship_id"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["role_id"], name: "index_users_on_role_id"
+    t.index ["standard_id"], name: "index_users_on_standard_id"
   end
 
+  add_foreign_key "subjects", "standards"
+  add_foreign_key "users", "relationships"
   add_foreign_key "users", "roles"
+  add_foreign_key "users", "standards"
 end
