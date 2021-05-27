@@ -88,6 +88,8 @@ GEM
     diff-lcs (1.4.4)
     erubi (1.10.0)
     ffi (1.15.1)
+    font-awesome-rails (4.7.0.7)
+      railties (>= 3.2, < 7)
     git (1.8.1)
       rchardet (~> 1.8)
     globalid (0.4.2)
@@ -234,6 +236,7 @@ DEPENDENCIES
   byebug
   capybara (>= 3.26)
   devise (~> 4.2)
+  font-awesome-rails
   git (~> 1.8, >= 1.8.1)
   jbuilder (~> 2.7)
   listen (~> 3.3)
