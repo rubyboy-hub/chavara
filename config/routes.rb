@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get 'teacher/index'
+  get 'parent/index'
+  get 'student/index'
   get 'home/index'
   devise_for :users
   # devise_for :users, controllers: {

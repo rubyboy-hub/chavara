@@ -1,13 +1,19 @@
 # frozen_string_literal: true
 
 class Users::SessionsController < Devise::SessionsController
+  def avatar_thumbnail
+    if avatar.attached?
+      avatar.variant(resize:"150X150").processed
+    else
+        '/default_profile.jpg'
+    end
+  end
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
-  def new
-    puts "hello"
-    exit
-  end
+  # def new
+      # super
+  # end
 
   # POST /resource/sign_in
   # def create
@@ -25,4 +31,5 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
+
 end
