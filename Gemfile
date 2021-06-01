@@ -8,7 +8,9 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 # Use postgresql as the database for Active Record
 
 gem 'pg', '~> 1.2', '>= 1.2.3'
+gem 'cancan', '~> 1.6', '>= 1.6.10'
 gem 'git', '~> 1.8', '>= 1.8.1'
+gem 'pry', '~> 0.14.1'
 gem 'devise', '~> 4.2'
 gem 'rspec', '~> 3.10'
 # Use Puma as the app server
@@ -27,7 +29,7 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
