@@ -12,13 +12,18 @@ gem 'cancan', '~> 1.6', '>= 1.6.10'
 gem 'git', '~> 1.8', '>= 1.8.1'
 gem 'pry', '~> 0.14.1'
 gem 'devise', '~> 4.2'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'rspec', '~> 3.10'
+gem 'jquery-rails', '~> 4.4'
+gem 'popper_js', '~> 2.9', '>= 2.9.2'
+gem 'rails_admin', '~> 2.1', '>= 2.1.1'
+
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '>= 6'
 # Transpile app-like JavaScript. Read more: https://github.com/rails/webpacker
-gem 'webpacker', '~> 5.0'
+gem 'webpacker', '~> 5.4'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -58,6 +63,8 @@ group :test do
   # Easy installation and use of web drivers to run system tests with browsers
   gem 'webdrivers'
 end
+
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-    protect_from_forgery with: :exception
+    # protect_from_forgery with: :exception
+    protect_from_forgery with: :null_session
 
     before_action :configure_permitted_parameters, if: :devise_controller?
 
@@ -12,8 +13,9 @@ class ApplicationController < ActionController::Base
          end
 
          def after_sign_in_path_for(resource)
-           
-          LoginMailer.sample_email(@user.email,@user.password).deliver
+         
+          users = @user
+          LoginMailer.sample_email(users).deliver
 
            if current_user.role_id == 2
                     student_index_path
@@ -24,10 +26,6 @@ class ApplicationController < ActionController::Base
            end
           end
 
-         
-
-
-
           def avatar_thumbnail
                if avatar.attached?
                  avatar.variant(resize:"150X150").processed
@@ -35,8 +33,4 @@ class ApplicationController < ActionController::Base
                    '/default_profile.jpg'
                end
            end
-
-        
-    
-
 end
