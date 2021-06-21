@@ -3,9 +3,9 @@ class LoginMailer < ApplicationMailer
         @user = user
         mail(to: @user.email, subject: 'Sample Email')
       end    
-      def sample_email(user,password)
-        @user = user
-        @password = password
-        mail(to: @user, subject: 'Welcome Email')
+      def sample_email(users)
+        # abort users.email.define?
+     
+        mail(to: users.email, subject: 'Welcome to Elearning Website')
     end
 end

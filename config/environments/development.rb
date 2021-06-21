@@ -13,6 +13,8 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
+  config.asset_host = 'http://127.0.0.1:3000'
+
 
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
@@ -29,7 +31,7 @@ Rails.application.configure do
 
     config.cache_store = :null_store
   end
-
+  
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 

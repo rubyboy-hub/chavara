@@ -1,8 +1,14 @@
-
+<div class="container-fluid">
 <main class="form-signin text-center">
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= image_tag("login_logo.jpg", :alt => "rss feed",:width => "72", :height => "57") %>
-    <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+    <%= image_tag("login_logo.jpg", :alt => "rss feed",:width => "72", :height => "57") %>
+    <h1 class="h3 mb-3 fw-normal">Sign In</h1>
 
   <div class="form-floating">
     <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control",placeholder:"Email" %>
@@ -23,10 +29,13 @@
 
   <div class="actions">
     <%= f.submit "Sign in",class:"w-100 btn btn-lg btn-primary" %>
+    <br>
+    <h3>If you do not have an account</h3>
+    <%= link_to "Sign Up", new_user_registration_path,class:"w-100 btn btn-lg btn-primary" %>
   </div>
 <% end %>
 </main>
+</div>
 
-<%= render "users/shared/links" %>
 
 

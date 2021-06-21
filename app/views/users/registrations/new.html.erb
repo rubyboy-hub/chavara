@@ -20,12 +20,12 @@
     <%= f.text_field :age, autofocus: true, autocomplete: "age",class:"form-control" %>
     <%= f.label :age %><br />
   </div>
-
+  <br />
   <div class="form-floating">
-    <%= f.email_field :email, autofocus: true, autocomplete: "email",class:"form-control" %>
+    <%= f.text_field :email, autofocus: true,class:"form-control" %>
     <%= f.label :email %><br />
   </div>
-  
+  <br>  
   <div class="form-floating">:
     <%= f.collection_select :standard_id, Standard.all, :id, :name, include_blank: false,class:"form-select form-select-lg mb-3"%>
     <%= f.label :Standard %><br />
